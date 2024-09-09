@@ -1,8 +1,8 @@
-import '../styles/App.css';  // App.css 추가
-import '../styles/globals.css';
+import '../styles/globals.css'
+import '../styles/App.css'  // App.css가 필요한 경우에만 포함
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return <Component {...pageProps} />
 }
 
-export default MyApp;
+export default MyApp

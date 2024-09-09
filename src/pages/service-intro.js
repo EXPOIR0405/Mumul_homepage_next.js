@@ -43,9 +43,9 @@ const ServiceIntroPage = () => {
   ];
 
   const testimonials = [
-    { name: "김서영", role: "카페 사장", content: "BiZBot 덕분에 고객 응대 시간이 70% 줄어들었어요. 이제 더 중요한 업무에 집중할 수 있게 되었죠." },
-    { name: "이준호", role: "온라인 쇼핑몰 운영자", content: "맞춤형 프로모션 추천 기능이 정말 놀라워요. 작년 대비 매출이 50% 이상 증가했습니다." },
-    { name: "박미라", role: "동네 빵집 운영", content: "AI 챗봇이 24시간 문의에 대응해주니 자는 시간에도 주문이 들어와요. 정말 혁신적이에요!" },
+    { name: "OOO", role: "카페 사장", content: "무물 덕분에 고객 응대 시간이 70% 줄어들었어요. 이제 더 중요한 업무에 집중할 수 있게 되었죠." },
+    { name: "OOO", role: "온라인 쇼핑몰 운영자", content: "맞춤형 프로모션 추천 기능이 정말 놀라워요. 작년 대비 매출이 50% 이상 증가했습니다." },
+    { name: "OOO", role: "동네 빵집 운영", content: "AI 챗봇이 24시간 문의에 대응해주니 자는 시간에도 주문이 들어와요. 정말 혁신적이에요!" },
   ];
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const ServiceIntroPage = () => {
             <ArrowLeft className="mr-2 text-4xl" />
           </Link>
           <h1 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-            BiZBot: AI로 비즈니스의 미래를 열다
+            MUMUL: AI로 비즈니스의 미래를 열다
           </h1>
         </div>
         <motion.div 
@@ -152,6 +152,21 @@ const ServiceIntroPage = () => {
           >
             문의하기
           </a>
+        </div>
+
+        {/* 협력사 로고 슬라이드 섹션 */}
+        <div className="overflow-hidden mt-10 bg-white p-6 rounded-xl shadow-lg">
+          <div className="flex space-x-12 slide-animation">
+            <img src="/images/uni1.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni2.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni3.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni4.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni5.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni6.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni7.jpg" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni8.png" alt="Korea Logo" className="w-52 h-auto" />
+            <img src="/images/uni9.png" alt="Korea Logo" className="w-52 h-auto" />
+          </div>
         </div>
       </div>
     </div>

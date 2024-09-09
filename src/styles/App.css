@@ -36,3 +36,16 @@
       transform: rotate(360deg);
     }
   }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .slide-animation {
+    animation: slideLeft 30s linear infinite !important;
+  }
