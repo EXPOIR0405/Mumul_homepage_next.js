@@ -138,7 +138,7 @@ const LandingPage = () => {
             {/* 문의하기 */}
             <div>
               <h4 className="text-lg font-semibold mb-4">문의하기</h4>
-              <p className="text-gray-400">ch@lean-ai.com<</p>
+              <p className="text-gray-400">ch@lean-ai.com</p>
               <p className="text-gray-400">02-1234-5678</p>
             </div>
           </div>
