@@ -73,7 +73,7 @@ const ServiceIntroPage = () => {
           className="text-center mb-20"
         >
           <p className="text-xl text-gray-600 mb-8">소상공인을 위한 올인원 AI 비즈니스 솔루션</p>
-          <motion.button 
+          <motion.button xw
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-indigo-700 transition duration-300"
@@ -154,20 +154,6 @@ const ServiceIntroPage = () => {
           </a>
         </div>
 
-        {/* 협력사 로고 슬라이드 섹션 */}
-        <div className="overflow-hidden mt-10 bg-white p-6 rounded-xl shadow-lg">
-          <div className="flex space-x-12 slide-animation">
-            <img src="/images/uni1.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni2.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni3.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni4.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni5.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni6.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni7.jpg" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni8.png" alt="Korea Logo" className="w-52 h-auto" />
-            <img src="/images/uni9.png" alt="Korea Logo" className="w-52 h-auto" />
-          </div>
-        </div>
       </div>
     </div>
   );
