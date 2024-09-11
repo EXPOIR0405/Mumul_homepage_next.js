@@ -73,7 +73,7 @@ const ServiceIntroPage = () => {
           className="text-center mb-20"
         >
           <p className="text-xl text-gray-600 mb-8">소상공인을 위한 올인원 AI 비즈니스 솔루션</p>
-          <motion.button xw
+          <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-indigo-700 transition duration-300"
@@ -153,7 +153,6 @@ const ServiceIntroPage = () => {
             문의하기
           </a>
         </div>
-
       </div>
     </div>
   );
