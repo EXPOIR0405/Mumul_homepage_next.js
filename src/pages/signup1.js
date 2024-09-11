@@ -36,15 +36,13 @@ export default function Signup1() {
           {/* 아이디 입력 및 중복확인 */}
           <div className="flex items-center mb-4 space-x-4">
             <div className="flex-grow relative">
-              <label className="absolute left-3 top-2 text-sm">
-                <span className="text-red-500">*</span> <span className="text-gray-700">아이디</span>
-              </label>
               <input 
                 type="text" 
                 name="username" 
                 value={form.username} 
                 onChange={handleChange} 
-                className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+                className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+                placeholder="아이디 (필수)"
               />
             </div>
             <button type="button" className="bg-purple-500 text-white py-2 px-4 rounded-md">
@@ -54,57 +52,48 @@ export default function Signup1() {
           
           {/* 비밀번호 입력 */}
           <div className="mb-4 relative">
-            <label className="absolute left-3 top-2 text-sm">
-              <span className="text-red-500">*</span> <span className="text-gray-700">비밀번호</span>
-            </label>
             <input 
               type="password" 
               name="password" 
               value={form.password} 
               onChange={handleChange} 
-              className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+              className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+              placeholder="비밀번호 (필수)"
             />
           </div>
           
           {/* 비밀번호 확인 */}
           <div className="mb-4 relative">
-            <label className="absolute left-3 top-2 text-sm">
-              <span className="text-red-500">*</span> <span className="text-gray-700">비밀번호 확인</span>
-            </label>
             <input 
               type="password" 
               name="confirmPassword" 
               value={form.confirmPassword} 
               onChange={handleChange} 
-              className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+              className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+              placeholder="비밀번호 확인 (필수)"
             />
           </div>
 
           {/* 이름과 생년월일 */}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="relative">
-              <label className="absolute left-3 top-2 text-sm">
-                <span className="text-red-500">*</span> <span className="text-gray-700">이름</span>
-              </label>
               <input 
                 type="text" 
                 name="name" 
                 value={form.name} 
                 onChange={handleChange} 
-                className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+                className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+                placeholder="이름 (필수)"
               />
             </div>
             <div className="relative">
-              <label className="absolute left-3 top-2 text-sm">
-                <span className="text-red-500">*</span> <span className="text-gray-700">생년월일(YYMMDD)</span>
-              </label>
               <input 
                 type="text" 
                 name="birthdate" 
-                placeholder="" 
+                placeholder="생년월일 (YYMMDD)" 
                 value={form.birthdate} 
                 onChange={handleChange} 
-                className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+                className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
               />
             </div>
           </div>
@@ -112,15 +101,13 @@ export default function Signup1() {
           {/* 휴대폰 번호와 인증번호 버튼 */}
           <div className="flex items-center mb-4 space-x-4">
             <div className="flex-grow relative">
-              <label className="absolute left-3 top-2 text-sm">
-                <span className="text-red-500">*</span> <span className="text-gray-700">휴대폰 번호</span>
-              </label>
               <input 
                 type="text" 
                 name="phone" 
                 value={form.phone} 
                 onChange={handleChange} 
-                className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+                className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+                placeholder="휴대폰 번호 (필수)"
               />
             </div>
             <button type="button" className="bg-purple-500 text-white py-2 px-4 rounded-md">
@@ -130,15 +117,13 @@ export default function Signup1() {
 
           {/* 이메일 입력 */}
           <div className="mb-4 relative">
-            <label className="absolute left-3 top-2 text-sm">
-              <span className="text-gray-700">이메일</span>
-            </label>
             <input 
               type="email" 
               name="email" 
               value={form.email} 
               onChange={handleChange} 
-              className="w-full border rounded-md px-3 py-2 h-10 pt-5"  // 고정 높이 설정
+              className="w-full border rounded-md px-3 py-2 h-10 pt-5" 
+              placeholder="이메일 (선택)"
             />
           </div>
           
