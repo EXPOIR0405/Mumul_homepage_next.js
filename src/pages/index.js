@@ -158,7 +158,7 @@ const LandingPage = () => {
 
 
       {/* 히어로 섹션: 메인 콘텐츠를 소개하는 영역 */}
-      <section className="pt-40 pb-20 px-4 md:px-0">
+      <section className="bg-purple-100 pt-40 pb-20 px-4 md:px-0">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-5xl font-bold mb-6 leading-tight text-gray-800">
