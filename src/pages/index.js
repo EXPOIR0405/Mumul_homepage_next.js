@@ -76,8 +76,8 @@ const LandingPage = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <Link href="/" className="text-2xl font-bold text-purple-600">MUMUL</Link>
-              <nav className="hidden md:block flex-grow">
-                <ul className="flex justify-center space-x-8">
+              <nav className="hidden md:block">
+                <ul className="flex justify-end space-x-8">
                   {navItems.map((item, index) => (
                     <li key={index} className="relative group">
                       <Link href="/" className="text-black hover:text-purple-600 transition duration-300 block py-2">
