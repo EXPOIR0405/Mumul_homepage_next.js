@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, MessageSquare, TrendingUp, CreditCard, Menu, X } from 'lucide-react';
 
 const LandingPage = () => {
@@ -40,23 +41,41 @@ const LandingPage = () => {
   const navItems = [
     {
       title: '회사소개',
-      subItems: ['회사 소개', '연혁', '뉴스룸'],
+      subItems: [
+        { name: '회사 소개', link: '/company' },
+        { name: '연혁', link: '/history' },
+        { name: '뉴스룸', link: '/news' },
+      ],
     },
     {
       title: '서비스',
-      subItems: ['무물 서비스 소개', '소상공인 솔루션', '무인 매장 솔루션', '공공기관 솔루션'],
+      subItems: [
+        { name: '무물 서비스 소개', link: '/service-intro' },
+        { name: '소상공인 솔루션', link: '/small-business-solution' },
+        { name: '무인 매장 솔루션', link: '/unmanned-store-solution' },
+        { name: '공공기관 솔루션', link: '/public-institution-solution' },
+      ],
     },
     {
       title: '활용 사례',
-      subItems: ['고객 성공 사례', '고객 후기'],
+      subItems: [
+        { name: '고객 성공 사례', link: '/customer-success-stories' },
+        { name: '고객 후기', link: '/customer-reviews' },
+      ],
     },
     {
       title: '고객 지원',
-      subItems: ['공지사항', 'FAQ'],
+      subItems: [
+        { name: '공지사항', link: '/notice' },
+        { name: 'FAQ', link: '/faq' },
+      ],
     },
     {
       title: '채용',
-      subItems: ['채용 정보', '팀 소개'],
+      subItems: [
+        { name: '채용 정보', link: '/job-info' },
+        { name: '팀 소개', link: '/team-introduction' },
+      ],
     },
   ];
 
@@ -111,10 +130,10 @@ const LandingPage = () => {
                   <ul className="space-y-2">
                     {item.subItems.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <Link href="/" 
+                        <Link href={typeof subItem === 'string' ? '/' : subItem.link || '/'} 
                               className="text-sm text-gray-700 hover:text-purple-600 block group">
                           <span className="relative">
-                            {subItem}
+                            {typeof subItem === 'string' ? subItem : subItem.name}
                             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
                           </span>
                         </Link>
@@ -144,8 +163,8 @@ const LandingPage = () => {
                 <ul className="space-y-2">
                   {item.subItems.map((subItem, subIndex) => (
                     <li key={subIndex}>
-                      <Link href="/" className="text-sm text-gray-700 hover:text-purple-600 block">
-                        {subItem}
+                      <Link href={typeof subItem === 'string' ? '/' : subItem.link || '/'} className="text-sm text-gray-700 hover:text-purple-600 block">
+                        {typeof subItem === 'string' ? subItem : subItem.name}
                       </Link>
                     </li>
                   ))}
@@ -165,13 +184,19 @@ const LandingPage = () => {
               소상공인부터 더 넓은 분야까지, <br /> <span className="text-indigo-600">무물이 함께합니다</span>
             </h1>
             <p className="text-xl mb-8 text-gray-600">고객 응대, 매출 증대, 주문 결제부터 다양한 산업의 디지털 혁신까지.<br />AI로 더 많은 가능성을 열어보세요.</p>
-            <Link href="/" className="bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
+            <Link href="/login" className="bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
               지금 시작하기 <ChevronRight className="inline ml-2" />
             </Link>
           </div>
           <div className="md:w-1/2 relative">
             <div className="w-80 h-80 bg-indigo-300 rounded-full absolute top-0 right-0 z-0 animate-pulse"></div>
-            <img src="/무물봇.png" alt="BiZBot 대시보드 이미지" className="relative z-10 rounded-lg shadow-2xl" />
+            <Image 
+              src="/images/무물_로고.png" 
+              alt="무물 로고" 
+              width={500} 
+              height={500} 
+              className="relative z-10 rounded-lg shadow-2xl"
+            />
           </div>
         </div>
       </section>
@@ -184,7 +209,7 @@ const LandingPage = () => {
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
               <MessageSquare size={48} className="text-indigo-600 mb-6" />
               <h3 className="text-2xl font-semibold mb-4 text-gray-800">스마트 응대</h3>
-              <p className="text-gray-600">AI가 고객의 문의에 실시간으로 응답하여 고객 만족도를 높이고 업무 효율을 극대화합니다.</p>
+              <p className="text-gray-600">AI가 고객의 문의에 실시간으로 응답하여 고객 만족도를 높이고 업무 효율을 극대합니다.</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
               <TrendingUp size={48} className="text-purple-600 mb-6" />
@@ -205,7 +230,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 text-center skew-y-3">
           <h2 className="text-4xl font-bold mb-6 text-white">지금 AI와 함께 미래의 비즈니스를 시작하세요</h2>
           <p className="text-xl mb-10 text-indigo-100">무물의 가능성을 직접 체험해보세요</p>
-          <Link href="/" className="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
+          <Link href="/login" className="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-indigo-100 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block">
             무료 체험 시작하기 <ChevronRight className="inline ml-2" />
           </Link>
         </div>
@@ -222,8 +247,8 @@ const LandingPage = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">빠른 링크</h4>
               <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition duration-300">서비스 소개</Link></li>
-                <li><Link href="/" className="text-gray-400 hover:text-white transition duration-300">요금제</Link></li>
+                <li><Link href="/service-intro" className="text-gray-400 hover:text-white transition duration-300">서비스 소개</Link></li>
+                <li><Link href="/pricing" className="text-gray-400 hover:text-white transition duration-300">요금제</Link></li>
                 <li><Link href="/" className="text-gray-400 hover:text-white transition duration-300">고객 지원</Link></li>
               </ul>
             </div>
