@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Bell, RefreshCw, Shield } from 'lucide-react';
+import { Calendar, Bell, RefreshCw, Shield, ArrowLeft } from 'lucide-react';
 
 const AnnouncementPage = () => {
   const [selectedId, setSelectedId] = useState(null);
@@ -39,7 +39,10 @@ const AnnouncementPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-purple-800 mb-12 text-center">공지사항</h1>
+        <div className="flex items-center mb-12"> {/* 추가된 부분 */}
+          <ArrowLeft className="h-6 w-6 text-purple-600 cursor-pointer mr-2" onClick={() => window.history.back()} /> {/* 뒤로가기 아이콘 */}
+          <h1 className="text-4xl font-bold text-purple-800 text-center">공지사항</h1>
+        </div>
         <div className="relative">
           {announcements.map((announcement, index) => (
             <motion.div
