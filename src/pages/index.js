@@ -261,7 +261,9 @@ const LandingPage = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">(주)린에이아이</h3>
               <p className="text-gray-400">소상공인부터 더 넓은 분야까지. AI로 혁신을 선도합니다.</p>
+              <p className="text-gray-400">서울특별시 관악구 봉천로 545, 2층(서울창업센터 관악) </p>
             </div>
+
             <div>
               <h4 className="text-lg font-semibold mb-4">빠른 링크</h4>
               <ul className="space-y-2">
@@ -273,7 +275,7 @@ const LandingPage = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">문의하기</h4>
               <p className="text-gray-400">ch@lean-ai.com</p>
-              <p className="text-gray-400"></p>
+              <p className="text-gray-400">02-6951-1510</p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">
