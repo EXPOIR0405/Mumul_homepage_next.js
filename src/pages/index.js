@@ -30,12 +30,23 @@ const LandingPage = () => {
     setIsNavExpanded(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsNavExpanded(false);
+  const handleMouseLeave = (event) => {
+    // relatedTarget이 null이 아닐 때만 확인
+    if (event.relatedTarget && navRef.current && !navRef.current.contains(event.relatedTarget)) {
+      setIsNavExpanded(false);
+    }
   };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavItemClick = () => {
+    setIsNavExpanded(true); // 서브 메뉴 클릭 시 nav 유지
+  };
+
+  const handleSubMenuMouseEnter = () => {
+    setIsNavExpanded(true); // 서브 메뉴에 마우스가 들어가면 nav 유지
   };
 
   const navItems = [
@@ -87,7 +98,7 @@ const LandingPage = () => {
         onMouseLeave={handleMouseLeave}
       >
         <header 
-          className="bg-white fixed w-full z-10 transition-all duration-300" 
+          className="bg-white fixed w-full z-20 transition-all duration-300" 
           style={{
             boxShadow: scrollPosition > 50 ? '0 4px 6px rgba(0,0,0,0.1)' : 'none',
           }}
@@ -99,7 +110,7 @@ const LandingPage = () => {
                 <ul className="flex justify-end space-x-8">
                   {navItems.map((item, index) => (
                     <li key={index} className="relative group">
-                      <Link href="/" className="text-black hover:text-purple-600 transition duration-300 block py-2">
+                      <Link href="/" className="text-black hover:text-purple-600 transition duration-300 block py-2" onClick={handleNavItemClick}>
                         {item.title}
                       </Link>
                     </li>
@@ -119,13 +130,14 @@ const LandingPage = () => {
           }`}
           style={{
             top: '68px',
-            zIndex: 9,
+            zIndex: 30,
           }}
+          onMouseEnter={handleSubMenuMouseEnter}
         >
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-5 gap-8">
               {navItems.map((item, index) => (
-                <div key={index}>
+                <div key={index} onMouseEnter={handleSubMenuMouseEnter}>
                   <h3 className="text-lg font-semibold mb-4 text-purple-600">{item.title}</h3>
                   <ul className="space-y-2">
                     {item.subItems.map((subItem, subIndex) => (
@@ -179,7 +191,7 @@ const LandingPage = () => {
       {/* 히어로 섹션: 메인 콘텐츠를 소개하는 영역 */}
       <section className="bg-purple-100 pt-40 pb-20 px-4 md:px-0">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0">
+          <div className="md:w-1/2 mb-10 md:ml-8">
             <h1 className="text-5xl font-bold mb-6 leading-tight text-gray-800">
               소상공인부터 더 넓은 분야까지, <br /> <span className="text-indigo-600">무물이 함께합니다</span>
             </h1>
@@ -195,7 +207,7 @@ const LandingPage = () => {
               alt="무물 로고" 
               width={500} 
               height={500} 
-              className="relative z-10 rounded-lg shadow-2xl"
+              className="relative z-10 rounded-lg"
             />
           </div>
         </div>
