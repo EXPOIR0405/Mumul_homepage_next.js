@@ -269,7 +269,7 @@ const LandingPage = () => {
               <ul className="space-y-2">
                 <li><Link href="/service-intro" className="text-gray-400 hover:text-white transition duration-300">서비스 소개</Link></li>
                 <li><Link href="/pricing" className="text-gray-400 hover:text-white transition duration-300">요금제</Link></li>
-                <li><Link href="/" className="text-gray-400 hover:text-white transition duration-300">고객 지원</Link></li>
+                <li><Link href="/terms" className="text-gray-400 hover:text-white transition duration-300">이용 약관</Link></li>
               </ul>
             </div>
             <div>
