@@ -32,7 +32,13 @@ const LandingPage = () => {
 
   const handleMouseLeave = (event) => {
     // relatedTarget이 null이 아닐 때만 확인
-    if (event.relatedTarget && navRef.current && !navRef.current.contains(event.relatedTarget)) {
+    if (navRef.current && event.relatedTarget) {
+      // relatedTarget이 navRef.current의 자식이 아닐 때만 nav를 닫음
+      if (!navRef.current.contains(event.relatedTarget)) {
+        setIsNavExpanded(false);
+      }
+    } else {
+      // relatedTarget이 null인 경우에도 nav를 닫음
       setIsNavExpanded(false);
     }
   };
