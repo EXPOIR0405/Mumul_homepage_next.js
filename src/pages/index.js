@@ -84,7 +84,7 @@ const LandingPage = () => {
       title: '고객 지원',
       subItems: [
         { name: '공지사항', link: '/notice' },
-        { name: 'FAQ', link: '/faq' },
+        { name: 'FAQ', link: '/question' },
       ],
     },
     {
