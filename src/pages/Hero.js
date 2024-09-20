@@ -3,6 +3,54 @@ import Head from 'next/head';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 
+const VideoBackgroundCarousel = ({ videos }) => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [nextVideoIndex, setNextVideoIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const videoElement = document.getElementById(`video-${currentVideoIndex}`);
+    if (videoElement) {
+      videoElement.play();
+    }
+  }, [currentVideoIndex]);
+
+  useEffect(() => {
+    const transitionTimer = setTimeout(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+        setNextVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+        setIsTransitioning(false);
+      }, 1000); // 1초 동안 페이드 효과
+    }, 5000); // 각 비디오를 5초 동안 재생
+
+    return () => clearTimeout(transitionTimer);
+  }, [currentVideoIndex, videos.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {videos.map((video, index) => (
+        <video
+          key={index}
+          id={`video-${index}`}
+          src={video}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            index === currentVideoIndex
+              ? 'opacity-100'
+              : index === nextVideoIndex && isTransitioning
+              ? 'opacity-100'
+              : 'opacity-0'
+          }`}
+          muted
+          loop
+          playsInline
+        />
+      ))}
+    </div>
+  );
+};
+
 const InvestorSlider = () => {
   return (
     <div className="overflow-hidden whitespace-nowrap">
@@ -43,6 +91,12 @@ const Home = () => {
     threshold: 0.1,
   });
 
+  const videoUrls = [
+    '/images/video1.mp4',
+    '/images/video2.mp4',
+    '/images/video3.mp4',
+  ];
+
   return (
     <div className="font-sans">
       <Head>
@@ -52,24 +106,24 @@ const Home = () => {
       </Head>
 
       <main>
-        {/* Hero Section */}
-        <section className="bg-blue-50 min-h-screen flex items-center">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h2 className="text-blue-600 font-bold mb-2">무물의 비전</h2>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        {/* Hero Section with Video Background Carousel */}
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+          <VideoBackgroundCarousel videos={videoUrls} />
+
+          {/* Content Overlay */}
+          <div className="relative z-20 container mx-auto px-4 text-white">
+            <div className="md:w-1/2">
+              <h2 className="text-blue-300 font-bold mb-2">무물의 비전</h2>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 소상공인을 위한<br />맞춤형 AI 챗봇 서비스
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl mb-8">
                 무물은 소상공인들이 효율적으로 고객 문의를 처리하고,<br />
                 매출을 향상시킬 수 있도록 돕는 AI챗봇입니다. 고객 응대 시간을 줄이고, 더 나은 비지니스 결과를 얻을 수 있도록 돕습니다.
               </p>
               <a href="#" className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">
                 무물 시작하기
               </a>
-            </div>
-            <div className="md:w-1/2">
-              <img src="/images/bot_4.png" alt="Wello 앱 화면" className="rounded-lg" />
             </div>
           </div>
         </section>
@@ -98,6 +152,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+
         <section className="py-20 bg-blue-600 text-white min-h-screen flex items-center" ref={ref}>
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-12">무물의 성과</h2>
