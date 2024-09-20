@@ -6,7 +6,18 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',  // src 폴더도 포함 가능
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        slider: 'slider 30s linear infinite',
+      },
+      keyframes: {
+        slider: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+    },
   },
+  variants: {},
   plugins: [],
 };
