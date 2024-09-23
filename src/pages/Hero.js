@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
+import Link from 'next/link';
 
 const VideoBackgroundCarousel = ({ videos }) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -106,29 +107,23 @@ const Home = () => {
       </Head>
 
       <main>
-        {/* Hero Section with Video Background Carousel */}
+        {/* 비디오 섹션*/}
         <section className="relative min-h-screen flex items-center overflow-hidden">
           <VideoBackgroundCarousel videos={videoUrls} />
 
-          {/* Content Overlay */}
+          {/* 컨텐츠 오버레이 */}
           <div className="relative z-20 container mx-auto px-4 text-white">
             <div className="md:w-1/2">
-              <h2 className="text-blue-300 font-bold mb-2">무물의 비전</h2>
+              <h2 className="text-blue-300 font-bold mb-2">(주)린에이아이의 비전</h2>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                소상공인을 위한<br />맞춤형 AI 챗봇 서비스
+                모두를 위한<br />맞춤형 AI 챗봇 서비스
               </h1>
-              <p className="text-xl mb-8">
-                무물은 소상공인들이 효율적으로 고객 문의를 처리하고,<br />
-                매출을 향상시킬 수 있도록 돕는 AI챗봇입니다. 고객 응대 시간을 줄이고, 더 나은 비지니스 결과를 얻을 수 있도록 돕습니다.
-              </p>
-              <a href="#" className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">
-                무물 시작하기
-              </a>
+
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* 무물 서비스 섹션 */}
         <section className="py-20 min-h-screen flex items-center" ref={ref}>
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">무물 서비스</h2>
@@ -179,29 +174,29 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Mumul Service Benefits Section */}
+        {/* 무물 서비스 효과 섹션*/}
         <section className="py-20 bg-gray-100 min-h-screen flex items-center">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <img src="/images/bot_3.jpg" alt="무물 서비스 혜택" className="rounded-lg shadow-xl" />
             </div>
             <div className="md:w-1/2 md:pl-10">
-              <h2 className="text-3xl font-bold mb-6">무물 서비스로 절감된 비용</h2>
+              <h2 className="text-3xl font-bold mb-6">무물 서비스를 통해 얻을 수 있는 다양한 이점</h2>
               <div className="text-5xl font-bold mb-4">
-                <CountUp end={120} duration={2.5} suffix="억원" />
+                <CountUp end={80} duration={2.5} suffix="%" />
               </div>
               <p className="text-xl">
-                무물 서비스를 도입한 소상공인 80%가 고객 응대 시간을 줄이고,<br />
-                운영 비용을 절감하여 더욱 효율적으로 비즈니스를 운영하고 있습니다.
+                무물 서비스를 도입한 고객의 80%가 더 나은 고객 관리와 시간 절감을 경험하고 있습니다.<br />
+                이를 통해 업무 효율을 높이고, 더 많은 고객과의 소통이 가능해졌습니다.
               </p>
               <p className="text-xl mt-4">
-                지금 바로 무물을 도입하고, 비용 절감과 비즈니스 성장을 경험해보세요!
+                지금 무물을 도입하여 시간 절약, 고객 만족도 향상, 그리고 비즈니스 성장을 직접 체험해보세요!
               </p>
             </div>
           </div>
         </section>
 
-        {/* Investors Section */}
+        {/*협력사 섹션 */}
         <section className="py-20 bg-white min-h-screen flex items-center">
           <div className="container mx-auto px-4">
             <h2 className="text-5xl font-bold text-center mb-40">무물의 파트너를 소개합니다</h2>
@@ -210,9 +205,33 @@ const Home = () => {
         </section>
       </main>
 
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 (주)린에이아이. All rights reserved.</p>
+   {/* 푸터 섹션: 페이지 하단의 추가 정보 및 링크 */}
+   <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">(주)린에이아이</h3>
+              <p className="text-gray-400">소상공인부터 더 넓은 분야까지. AI로 혁신을 선도합니다.</p>
+              <p className="text-gray-400">서울특별시 관악구 봉천로 545, 2층(서울창업센터 관악) </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-4">빠른 링크</h4>
+              <ul className="space-y-2">
+                <li><Link href="/service-intro" className="text-gray-400 hover:text-white transition duration-300">서비스 소개</Link></li>
+                <li><Link href="/pricing" className="text-gray-400 hover:text-white transition duration-300">요금제</Link></li>
+                <li><Link href="/terms" className="text-gray-400 hover:text-white transition duration-300">이용 약관</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">문의하기</h4>
+              <p className="text-gray-400">ch@lean-ai.com</p>
+              <p className="text-gray-400">02-6951-1510</p>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-gray-700 text-center">
+            <p>&copy; 2024 (주)린에이아이. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
