@@ -2,32 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { ChevronDown, ChevronUp, Award, Users, Database, Zap, Building, Briefcase, ExternalLink, ArrowLeft } from 'lucide-react';
 
-const AnimatedBackground = () => (
-  <div className="fixed inset-0 z-0">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: 'rgba(255,255,255,0.2)', stopOpacity: 1 }} />  // 흰색으로 변경
-          <stop offset="50%" style={{ stopColor: 'rgba(149,76,233,0.2)', stopOpacity: 1 }} />  // 검정색 추가
-          <stop offset="100%" style={{ stopColor: 'rgba(255,255,255,0.2)', stopOpacity: 1 }} />  // 흰색으로 변경
-        </linearGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grad1)">
-        <animate attributeName="x" from="-100%" to="100%" dur="20s" repeatCount="indefinite" />
-      </rect>
-      <rect width="100%" height="100%" fill="url(#grad1)">
-        <animate attributeName="x" from="0%" to="200%" dur="20s" repeatCount="indefinite" />
-      </rect>
-      <rect width="100%" height="100%" fill="url(#grad1)">
-        <animate attributeName="y" from="-100%" to="100%" dur="20s" repeatCount="indefinite" />
-      </rect>
-      <rect width="100%" height="100%" fill="url(#grad1)">
-        <animate attributeName="y" from="0%" to="200%" dur="20s" repeatCount="indefinite" />
-      </rect>
-    </svg>
-  </div>
-);
-
 const Section = ({ title, icon, children }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const controls = useAnimation();
@@ -108,8 +82,7 @@ const CompanyIntroduction = () => {
   ];
 
   return (
-    <div className="min-h-screen p-8 relative">
-      <AnimatedBackground />
+    <div className="min-h-screen p-8 relative bg-white">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="flex items-center mb-4 justify-between"> 
           <div className="flex items-center">
@@ -185,7 +158,7 @@ const CompanyIntroduction = () => {
           <h3 className="font-bold text-lg mb-6">주요 성과</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: <Database />, content: "데이터바우처 지원사업으로 32개사의 소상공인 대상 솔루션을 개발" },
+              { icon: <Database />, content: "데이터바우처 지원사업으로 32개사의 소상공지원사업으로 32개사의 소상공인 대상 솔루션을 개발" },
               { icon: <Zap />, content: "AI 바우처 지원사업으로 25개사 소상공인 대상 AI 솔루션 개발" },
               { icon: <Users />, content: "전국 600여 개의 소상공인 대상 솔루션 구축 경험" }
             ].map((item, index) => (

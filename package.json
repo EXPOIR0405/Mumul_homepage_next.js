@@ -13,7 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.439.0",
-    "next": "^14.2.10",
+    "next": "^14.2.13",
     "next.js": "^1.0.3",
     "react": "^18",
     "react-countup": "^6.5.3",
