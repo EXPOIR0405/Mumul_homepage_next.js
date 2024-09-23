@@ -82,7 +82,7 @@ const CompanyIntroduction = () => {
   ];
 
   return (
-    <div className="min-h-screen p-8 relative bg-white">
+    <div className="min-h-screen p-8 relative bg-gray-100">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="flex items-center mb-4 justify-between"> 
           <div className="flex items-center">
